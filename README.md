@@ -1,7 +1,7 @@
 # Python Requestsでプロキシを使用する方法
 
 
-[![Promo](https://github.com/luminati-io/Rotating-Residential-Proxies/blob/main/50%25%20off%20promo.png)](https://brightdata.jp/proxy-types/residential-proxies) 
+[![Promo](https://github.com/bright-jp/Rotating-Residential-Proxies/blob/main/50%25%20off%20promo.png)](https://brightdata.jp/proxy-types/residential-proxies) 
 
 このガイドでは、特に[Webスクレイピング](https://brightdata.jp/blog/how-tos/what-is-web-scraping)のために、Python requestsでプロキシを使用する方法を学びます。IPアドレスとロケーションを変更して、[Webサイトの制限を回避](https://brightdata.jp/blog/proxy-101/how-to-bypass-an-ip-ban)します。
 
@@ -81,7 +81,7 @@ for link in links:
 
 上記スクリプトを実行した際の出力は次のとおりです。
 
-![Scraped links](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/link-to-webpage-2-1024x653.png)
+![Scraped links](https://github.com/bright-jp/Proxy-with-python-requests/blob/main/link-to-webpage-2-1024x653.png)
 
 ## Setting Proxies via Environment Variables
 
@@ -118,7 +118,7 @@ for link in links:
 
 ## Rotating Proxies Using a Custom Method and an Array of Proxies
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp/proxy-types/residential-proxies) 
+[![Promo](https://github.com/bright-jp/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp/proxy-types/residential-proxies) 
 
 ローテーティングプロキシは、同一IPアドレスから大量のリクエストを受け取った際にWebサイトが課す制限を回避するのに役立ちます。
 
@@ -210,15 +210,15 @@ Bright Dataには、7,200万以上の[レジデンシャルプロキシIP](https
 
 1. ようこそページで **View proxy product** をクリックし、Bright Dataが提供するさまざまな種類のプロキシを確認します。
 
-![Bright Data proxy types](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/bright-data-proxy-types-1024x464.png)
+![Bright Data proxy types](https://github.com/bright-jp/Proxy-with-python-requests/blob/main/bright-data-proxy-types-1024x464.png)
 
 2. **Datacenter Proxies** を選択して新しいプロキシを作成し、次のページで詳細を追加して保存します。
 
-![Datacenter proxies configuration](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/datacenter-proxies-837x1024.png)
+![Datacenter proxies configuration](https://github.com/bright-jp/Proxy-with-python-requests/blob/main/datacenter-proxies-837x1024.png)
 
 3. プロキシが作成されると、ダッシュボードにhost、port、username、passwordなど、スクリプトで使用するパラメータが表示されます。
 
-![Datacenter proxy parameters](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/datacenter-proxy-parameters-928x1024.png)
+![Datacenter proxy parameters](https://github.com/bright-jp/Proxy-with-python-requests/blob/main/datacenter-proxy-parameters-928x1024.png)
 
 4. これらのパラメータをスクリプトにコピー＆ペーストし、プロキシURLは `username-(session-id)-password@host:port` の形式を使用します。
 
