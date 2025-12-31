@@ -1,9 +1,9 @@
-# Using a Proxy with Python Requests
+# Python Requestsでプロキシを使用する方法
 
 
-[![Promo](https://github.com/luminati-io/Rotating-Residential-Proxies/blob/main/50%25%20off%20promo.png)](https://brightdata.com/proxy-types/residential-proxies) 
+[![Promo](https://github.com/luminati-io/Rotating-Residential-Proxies/blob/main/50%25%20off%20promo.png)](https://brightdata.jp/proxy-types/residential-proxies) 
 
-In this guide, you will learn how to use proxies with Python requests, particularly for [web scraping](https://brightdata.com/blog/how-tos/what-is-web-scraping), to [bypass website restrictions](https://brightdata.com/blog/proxy-101/how-to-bypass-an-ip-ban) by changing your IP and location:
+このガイドでは、特に[Webスクレイピング](https://brightdata.jp/blog/how-tos/what-is-web-scraping)のために、Python requestsでプロキシを使用する方法を学びます。IPアドレスとロケーションを変更して、[Webサイトの制限を回避](https://brightdata.jp/blog/proxy-101/how-to-bypass-an-ip-ban)します。
 
 - [Using a Proxy with a Python Request](#using-a-proxy-with-a-python-request)
 - [Installing Packages](#installing-packages)
@@ -18,38 +18,38 @@ In this guide, you will learn how to use proxies with Python requests, particula
 
 ## Installing Packages
 
-Use `pip install` to install the following Python packages to send requests to the web page and collect the links:
+`pip install` を使用して、Webページにリクエストを送信しリンクを収集するために、次のPythonパッケージをインストールします。
 
-- `requests`: sends HTTP requests to the website where you want to scrape the data.
-- `beautifulsoup4`: parses HTML and XML documents to extract all the links.
+- `requests`: スクレイピングしたいデータがあるWebサイトにHTTPリクエストを送信します。
+- `beautifulsoup4`: HTMLおよびXMLドキュメントを解析して、すべてのリンクを抽出します。
 
 ## Components of Proxy IP Address
 
-The three primary components of a proxy server are:
+プロキシサーバーの主要な構成要素は次の3つです。
 
-1.  **Protocol** is typically either HTTP or HTTPS.
-2.  **Address** can be an IP address or a DNS hostname.
-3.  **Port number** is anywhere between 0 and 65535, e.g. `2000`.
+1.  **Protocol** は通常、HTTPまたはHTTPSです。
+2.  **Address** はIPアドレス、またはDNSホスト名です。
+3.  **Port number** は0〜65535の範囲で、例: `2000` です。
 
-Thus, a proxy IP address would look like this: `https://192.167.0.1:2000` or
-`https://proxyprovider.com:2000`.
+したがって、プロキシIPアドレスは `https://192.167.0.1:2000` または
+`https://proxyprovider.com:2000` のようになります。
 
 ## Setting Proxies Directly in Requests
 
-This guide covers three ways to set proxies in requests. The first approach assumes doing that directly in the requests module.
+このガイドでは、requestsでプロキシを設定する3つの方法を扱います。最初のアプローチは、requestsモジュールで直接設定することを想定しています。
 
-Do as follows:
+次の手順で行います。
 
-1. Import the Requests and Beautiful Soup packages in your Python script.
-2. Create a directory called `proxies` that contains proxy server information.
-3. In the `proxies` directory, define both the HTTP and HTTPS connections to the proxy URL.
-4. Define the Python variable to set the URL of the web page you want to scrape the data from. Use `https://brightdata.com`.
-5. Send a GET request to the web page using the `request.get()` method with two arguments: the URL of the website and proxies. The response will be stored in the `response` variable.
-6. Pass `response.content` and `html.parser` as arguments to the `BeautifulSoup()` method to collect links.
-7. Use the `find_all()` method with `a` as an argument to find all the links on the web page.
-8. Extract the `href` attribute of each link using the `get()` method.
+1. PythonスクリプトでRequestsとBeautiful Soupパッケージをインポートします。
+2. プロキシサーバー情報を含む `proxies` というディレクトリを作成します。
+3. `proxies` ディレクトリで、プロキシURLへのHTTPおよびHTTPS接続の両方を定義します。
+4. データをスクレイピングしたいWebページのURLを設定するPython変数を定義します。`https://brightdata.jp` を使用します。
+5. `request.get()` メソッドを使ってWebページにGETリクエストを送信します。引数はWebサイトのURLとproxiesの2つです。レスポンスは `response` 変数に格納されます。
+6. `BeautifulSoup()` メソッドに `response.content` と `html.parser` を引数として渡し、リンクを収集します。
+7. `find_all()` メソッドに `a` を引数として渡し、Webページ上のすべてのリンクを見つけます。
+8. `get()` メソッドを使用して、各リンクの `href` 属性を抽出します。
 
-Here is the complete source code:
+以下が完全なソースコードです。
 
 ```
 # import packages.  
@@ -79,20 +79,20 @@ for link in links:
     print(link.get("href"))
 ```
 
-Here is the output from running the script above:
+上記スクリプトを実行した際の出力は次のとおりです。
 
 ![Scraped links](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/link-to-webpage-2-1024x653.png)
 
 ## Setting Proxies via Environment Variables
 
-To use the same proxy for all requests, it's best to set environment variables in the terminal window:
+すべてのリクエストで同じプロキシを使用するには、ターミナルウィンドウで環境変数を設定するのが最適です。
 
 ```powershell
 export HTTP_PROXY='http://proxyprovider.com:2000'  
 export HTTPS_PROXY='https://proxyprovider.com:2000'
 ```
 
-You can remove the proxies definition from the script now:
+これで、スクリプトからproxies定義を削除できます。
 
 ```
 # import packages.  
@@ -118,14 +118,14 @@ for link in links:
 
 ## Rotating Proxies Using a Custom Method and an Array of Proxies
 
-[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.com/proxy-types/residential-proxies) 
+[![Promo](https://github.com/luminati-io/LinkedIn-Scraper/blob/main/Proxies%20and%20scrapers%20GitHub%20bonus%20banner.png)](https://brightdata.jp/proxy-types/residential-proxies) 
 
-Rotating proxies helps work around the restrictions that websites put when they receive a large number of requests from the same IP address.
+ローテーティングプロキシは、同一IPアドレスから大量のリクエストを受け取った際にWebサイトが課す制限を回避するのに役立ちます。
 
-Do as follows:
+次の手順で行います。
 
-1. Import the following Python libraries: Requests, Beautiful Soup, and Random.
-2. Create a list of proxies to use during the rotation process. Use the `http://proxyserver.com:port` format:
+1. 次のPythonライブラリをインポートします: Requests、Beautiful Soup、Random。
+2. ローテーション処理中に使用するプロキシのリストを作成します。`http://proxyserver.com:port` 形式を使用します。
 
 ```
 # List of proxies  
@@ -138,7 +138,7 @@ proxies = [
 ]
 ```
 
-3. Create a custom method called `get_proxy()`. It will randomly select a proxy from the list of proxies using the `random.choice()` method and return the selected proxy in dictionary format (both HTTP and HTTPS keys). You’ll use this method whenever you send a new request:
+3. `get_proxy()` というカスタムメソッドを作成します。これは `random.choice()` メソッドを使用してプロキシリストからランダムにプロキシを選択し、選択したプロキシを辞書形式（HTTPとHTTPSの両方のキー）で返します。新しいリクエストを送信するたびに、このメソッドを使用します。
 
 ```
 # Custom method to rotate proxies  
@@ -149,13 +149,13 @@ def get_proxy():
     return {'http': proxy, 'https': proxy}  
 ```
 
-4. Create a loop that sends a certain number of GET requests using the rotated proxies. In each request, the `get()` method uses a randomly chosen proxy specified by the `get_proxy()` method.
+4. ローテーションしたプロキシを使って、一定回数のGETリクエストを送信するループを作成します。各リクエストで `get()` メソッドは、`get_proxy()` メソッドで指定されたランダムに選ばれたプロキシを使用します。
 
-5. Collect the links from the HTML content of the web page using the Beautiful Soup package, as explained previously.
+5. 以前説明したとおり、Beautiful Soupパッケージを使用してWebページのHTMLコンテンツからリンクを収集します。
 
-6. Catch and print any exceptions that occur during the request process.
+6. リクエスト処理中に発生した例外をキャッチして出力します。
 
-Here is the complete source code for this example:
+この例の完全なソースコードは次のとおりです。
 
 ```
 # import packages  
@@ -183,7 +183,7 @@ def get_proxy():
 # Send requests using rotated proxies  
 for i in range(10):  
     # Set the URL to scrape  
-    url = 'https://brightdata.com/'  
+    url = 'https://brightdata.jp/'  
     try:  
         # Send a GET request with a randomly chosen proxy  
         response = requests.get(url, proxies=get_proxy())  
@@ -204,28 +204,28 @@ for i in range(10):
 
 ## Using the Bright Data Proxy Service with Python
 
-Bright Data has a large network of more than 72 million [residential proxy IPs](https://brightdata.com/proxy-types/residential-proxies) and more than 770,000 [datacenter proxies](https://brightdata.com/proxy-types/datacenter-proxies).
+Bright Dataには、7,200万以上の[レジデンシャルプロキシIP](https://brightdata.jp/proxy-types/residential-proxies)と、770,000以上の[データセンタープロキシ](https://brightdata.jp/proxy-types/datacenter-proxies)からなる大規模なネットワークがあります。
 
-You can [integrate Bright Data’s datacenter proxies](https://brightdata.com/integration) into your Python requests. Once you have an account with Bright Data, follow these steps to create your first proxy:
+[Bright Dataのデータセンタープロキシを統合](https://brightdata.jp/integration)して、Python requestsに組み込むことができます。Bright Dataのアカウントを作成したら、次の手順で最初のプロキシを作成します。
 
-1. Click **View proxy product** on the welcome page to view the different types of proxy offered by Bright Data:
+1. ようこそページで **View proxy product** をクリックし、Bright Dataが提供するさまざまな種類のプロキシを確認します。
 
 ![Bright Data proxy types](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/bright-data-proxy-types-1024x464.png)
 
-2. Select **Datacenter Proxies** to create a new proxy, and on the subsequent page, add your details, and save it:
+2. **Datacenter Proxies** を選択して新しいプロキシを作成し、次のページで詳細を追加して保存します。
 
 ![Datacenter proxies configuration](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/datacenter-proxies-837x1024.png)
 
-3. Once your proxy is created, the dashboard will show you parameters such as the host, the port, the username, and the password to use in your scripts:
+3. プロキシが作成されると、ダッシュボードにhost、port、username、passwordなど、スクリプトで使用するパラメータが表示されます。
 
 ![Datacenter proxy parameters](https://github.com/luminati-io/Proxy-with-python-requests/blob/main/datacenter-proxy-parameters-928x1024.png)
 
-4. Copy-paste these parameters to your script and use the following format of the proxy URL: `username-(session-id)-password@host:port`.
+4. これらのパラメータをスクリプトにコピー＆ペーストし、プロキシURLは `username-(session-id)-password@host:port` の形式を使用します。
 
 > **Note:**\
-> The `session-id` is a random number created by using a Python package called `random`.
+> `session-id` は、`random` というPythonパッケージを使用して作成されるランダムな数値です。
 
-Here is the code that uses a proxy from Bright Data in a Python request:
+以下は、PythonリクエストでBright Dataのプロキシを使用するコードです。
 
 ```
 import requests  
@@ -261,8 +261,8 @@ for link in links:
     print(link.get("href"))
 ```
 
-Running this code will make a successful request using Bright Data’s [proxy service](https://brightdata.com/proxy-types).
+このコードを実行すると、Bright Dataの[プロキシサービス](https://brightdata.jp/proxy-types)を使用して正常にリクエストが行われます。
 
 ## Conclusion
 
-With Bright Data’s web platform, you can get reliable proxies for your project that cover any country or city in the world. Try Bright Data's [proxy services](https://brightdata.com/proxy-types) for free now!
+Bright DataのWebプラットフォームを使用すると、世界中のあらゆる国や都市をカバーする、プロジェクト向けの信頼性の高いプロキシを入手できます。今すぐBright Dataの[proxy services](https://brightdata.jp/proxy-types)を無料でお試しください。
